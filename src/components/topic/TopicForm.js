@@ -55,10 +55,10 @@ class TopicForm extends React.Component {
                 <br/>
                 <h3>Create a new Topic!</h3>
                 <hr/>
-                {!errors && saved && (
+                {saved && (
                     <div className={"col-12"}>
                         <h6>Success!</h6>
-                        <span>New record has beed saved</span><br/>
+                        <span>New topic has beed saved</span><br/>
                     </div>
 
                 )}

@@ -1,19 +1,13 @@
 import React from "react";
 import Globals from "../../Globals";
-import Select from "react-select";
 
 const axios = require('axios');
 
 
-class FeedbackForm extends React.Component {
+class FeedbackBase extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            topics: [],
-            selectedTopic: {id: 0, label: "Select a Topic", message: ""},
-
-        };
 
         this.onSelectChange = this.onSelectChange.bind(this);
         this.loadTopics();
@@ -43,4 +37,4 @@ class FeedbackForm extends React.Component {
     }
 }
 
-export default FeedbackForm;
+export default FeedbackBase;

@@ -11,6 +11,8 @@ class FeedbackForm extends FeedbackBase {
         super(props);
 
         this.state = {
+            topics: [],
+            selectedTopic: {value: 0, label: "Select a Topic", message: ""},
             vote: -1,
             answer: '',
             saved: false,
@@ -33,8 +35,9 @@ class FeedbackForm extends FeedbackBase {
 
         data.answer = this.state.answer;
         data.vote = this.state.vote;
-        data.selectedTopicId = this.state.selectedTopic.value;
+        console.log(this.state);
 
+        data.selectedTopicId = this.state.selectedTopic.value;
         const self = this;
         axios.post(Globals.serviceUrl + 'feedback/save', data)
             .then(function (response) {
@@ -92,7 +95,7 @@ class FeedbackForm extends FeedbackBase {
                 {saved && (
                     <div className={"col-12"}>
                         <h6>Success!</h6>
-                        <span>Your answer has beed saved</span><br/>
+                        <span>Your answer has been saved</span><br/>
                     </div>
 
                 )}
@@ -106,7 +109,7 @@ class FeedbackForm extends FeedbackBase {
                                     onChange={this.onSelectChange}/>
                         </div>
                         <div className={"col-9"}>
-                            {(this.state.selectedTopic != null) && this.state.selectedTopic.question}
+                            <h4>{(this.state.selectedTopic != null) && this.state.selectedTopic.question}</h4>
                             {errors.id && (
                                 <div className="error-message">
                                     {errors.id}
@@ -115,6 +118,7 @@ class FeedbackForm extends FeedbackBase {
                         </div>
 
                     </div>
+                    <br/>
 
                     <div className="form-group">
                         <input

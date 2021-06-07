@@ -1,6 +1,6 @@
 import React from "react";
 import Globals from "../../Globals";
-import { MDBDataTableV5 } from 'mdbreact';
+import {MDBDataTableV5} from 'mdbreact';
 import Select from "react-select";
 import FeedbackBase from "./FeedbackBase";
 
@@ -13,7 +13,9 @@ class FeedbackList extends FeedbackBase {
         super(props);
 
         this.state = {
-            feedbacks:[]
+            topics: [],
+            selectedTopic: {value: 0, label: "Select a Topic", message: ""},
+            feedbacks: []
         };
 
         this.loadFeedbacks = this.loadFeedbacks.bind(this);
